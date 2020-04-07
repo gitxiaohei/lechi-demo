@@ -1,0 +1,112 @@
+ body{
+	background-image:url(../img/login.jpg);
+} 
+*{
+	margin:0;
+	padding:0;
+}
+.footer{
+	color:rgba(220,230,240);
+	text-align:center;
+	font-size: 13px;
+}
+#login{
+	width:600px;
+    margin:200px auto;
+}
+#login:after{
+	content:"";
+    visibility: hidden;
+    width:0;
+    height:0;
+    clear:both;
+    display:block;
+}
+#login>div{
+	float: left;
+	height:330px;
+}
+#login>div:nth-child(1){
+	background: rgba(0,88,189);
+	opacity:.9;
+	width:330px;
+}
+#login>div:nth-child(1)>p{
+	text-align: center;
+	color:#fff;
+}
+#login>.login-form{
+	box-sizing: border-box;
+	border:1px solid black;
+	width:270px;
+	background-color: #fff;
+}
+.login-form h3{
+   color:rgba(0,113,225);
+   text-align: center;
+   margin:30px auto;
+}
+.login-form input[type="text"],
+.login-form input[type="password"]{
+	border:1px solid rgba(0,113,225);
+	border-radius: 3px;
+	height:25px;
+	width:180px;
+	margin-bottom:12px;
+	text-indent: 35px;
+	font-size: 13px;
+}
+.login-form .inputs .yanzheng{
+	width:100px;
+	margin-right:10px;
+	float:left;
+}
+.login-form .inputs .input-yz:after{
+    content:"";
+    visibility: hidden;
+    width:0;
+    height:0;
+    clear:both;
+    display:block;
+}
+.login-form .inputs .input-yz{
+	padding:0;
+	vertical-align: top;
+}
+.login-form .inputs{
+	margin:8px 13px 2px 40px;
+}
+.login-form .inputs>div{
+	position:relative;
+}
+.login-form .inputs>.input-in:before{
+	content: "";
+    position: absolute;
+    display: block;
+    visibility: show;
+    z-index:10;
+    left:30px;
+    top:6px;
+    width:1px;
+    height:16px;
+    border-left:1px solid #bbb;
+}
+.login-form span{
+	font-size: 12px;
+	float:right;
+}
+.checkbox{
+	width:30%;
+}
+.login-form>form>.btn{
+	width:50%;
+	margin:15px auto;
+}
+.login-form>form button{
+	border:none;
+	background-color: rgba(0,113,225);
+	width:120px;
+	height:27px;
+	color:#fff;
+	border-radius:5px;
+}

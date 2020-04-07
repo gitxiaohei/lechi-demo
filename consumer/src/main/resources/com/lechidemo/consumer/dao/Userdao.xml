@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lechidemo.consumer.dao.Userdao">
+<select id="login" parameterType="java.util.Map" resultType="com.lechidemo.consumer.domain.User">
+        select * from TB_USER where NAME=#{name} and PASSWORD=#{password}
+    </select>
+
+</mapper>

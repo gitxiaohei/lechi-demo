@@ -1,0 +1,29 @@
+server:
+  port: 9002
+spring:
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+    cache: false #关闭缓存
+  application:
+    name: lechi-service
+  datasource:
+    url: jdbc:oracle:thin:@192.168.31.198:49161:xe
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: LIUCHAOLING
+    password: '@Liuchaoling123'
+#  mvc:
+ #   view:
+  #    prefix: /
+   #   suffix: .html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+
+# 分页配置
+pagehelper:
+  helper-dialect: oracle
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

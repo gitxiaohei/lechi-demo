@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lechidemo.producer.dao.Orderdao">
+    <select id="findpage" parameterType="com.lechidemo.producer.domain.QueryPageBean" resultType="com.lechidemo.producer.domain.Order">
+        select * from TB_ORDER
+
+    </select>
+    <select id="findpages" parameterType="java.lang.String" resultType="com.lechidemo.producer.domain.Order">
+        select * from TB_ORDER
+        <if test="value!=null and value.length>0">
+            where ORDERID like concat(concat('%',#{value }),'%')
+            or ORDERCODE like concat(concat('%',#{value }),'%')
+            or ORDERTIME like concat(concat('%',#{value }),'%')
+            or BUILDER like concat(concat('%',#{value }),'%')
+            or TOTALPRICE like concat(concat('%',#{value }),'%')
+        </if>
+    </select>
+    <select id="findallProduct" resultType="com.lechidemo.producer.domain.Product">
+        select * from PRODUCT
+    </select>
+    <select id="findByOrderId" parameterType="java.lang.String" resultType="com.lechidemo.producer.domain.Order">
+        select * from TB_ORDER where ORDERID=#{orderid}
+    </select>
+    <update id="editOrderByorderId" parameterType="java.util.Map">
+        update TB_ORDER
+        <set>
+
+            <if test="order.ordercode!=null">
+                ORDERCODE=#{order.ordercode},
+            </if>
+            <if test="order.ordertime!=null">
+                ORDERTIME=#{order.ordertime},
+            </if>
+            <if test="order.builder!=null">
+                BUILDER=#{order.builder},
+            </if>
+            <if test="order.totalprice!=null">
+                TOTALPRICE=#{order.totalprice},
+            </if>
+        </set>
+        where ORDERID=#{orderid}
+    </update>
+    <update id="editOrderid" parameterType="java.util.Map">
+      update TB_ORDER  <set>
+        <if test="neworderid!=null">
+            ORDERID=#{neworderid},
+        </if>
+    </set>
+        where ORDERID=#{orderid}
+    </update>
+    <delete id="deleteOrderwithID" parameterType="java.lang.String">
+       DELETE from TB_ORDER WHERE ORDERID=#{orderid}
+    </delete>
+    <select id="findProductsByorderid" parameterType="java.lang.String" resultType="com.lechidemo.producer.domain.Product">
+        select * from ORDER_PRODUCT WHERE ORDERID=#{orderid }
+    </select>
+    <insert id="addProduct" parameterType="com.lechidemo.producer.domain.Product">
+        insert  into PRODUCT ("pname","price","pmsg","count") values (#{pname},#{price},#{pmsg},#{count})
+    </insert>
+</mapper>
