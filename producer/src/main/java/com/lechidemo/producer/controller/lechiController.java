@@ -72,7 +72,7 @@ public class lechiController {
     @RequestMapping("/addproduct")
     @ResponseBody
     public Result addproduct(@RequestBody Product product){
-        System.out.println("ZZZZZZZZZdddddZZZ"+product.getPname());
+        System.out.println("ZZZZZZZZZcccccccccZZZ"+product.getPname());
         return lechiService1.addproduct(product);
     }
 }
